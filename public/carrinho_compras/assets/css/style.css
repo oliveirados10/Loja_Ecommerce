@@ -122,7 +122,8 @@ h1 {
 }
 
 .checkout-options button:hover {
-    background-color: #218838;
+    background-color: #026618;
+    font-weight: bold;
 }
 
 span{
