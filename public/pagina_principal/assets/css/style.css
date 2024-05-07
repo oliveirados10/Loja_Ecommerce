@@ -140,3 +140,19 @@ header {
     background-color: #33333300;
     border: none;
 }
+
+.adicionarCarrinho{
+  padding: 3px;
+  margin-top: 8px;
+  border: none;
+  display: center;
+  justify-content: center;
+  background-color: #026b027a;
+  color: white;
+  border-radius: 20px;
+}
+
+.adicionarCarrinho:hover{
+  background-color: #008000;
+  font-weight: bold;
+}

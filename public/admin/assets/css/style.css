@@ -218,3 +218,22 @@ header {
     background-color: #33333300;
     border: none;
 }
+
+.modal{
+    display: block !important;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-weight: 18px;
+    font-weight: bold;
+}
+
+
+.formItens input{
+    margin-bottom: 1rem;
+}
+
+.editImg {
+    width: 40vh;
+    border: none;
+}

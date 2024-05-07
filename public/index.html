@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="shoes">
 
 <head>
   <meta charset="UTF-8">
@@ -12,7 +12,7 @@
   <title>J3 | Página Principal</title>
 </head>
 
-<body class="corpo">
+<body class="corpo" ng-controller="shoesControllerPublic">
   <h1 style="color: rgb(253, 254, 255); font-size: 28px; font-weight: bold;">J3 Comp.</h1>
 
   <div class="icon">
@@ -29,62 +29,13 @@
 
 
   <div class="container">
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_adidas_boost.avif" alt="Tênis Adidas">
-      <h2>Adidas Boost</h2>
-      <span class="price">R$ 800,00</span>
+    <div class="item" ng-repeat="data in products">
+      <img ng-src="{{data.imageUrl}}" alt="{{data.name}}">
+      <h2> {{data.name}} </h2>
+      <span class="price"> {{data.price | currency:'R$ ':2}}</span>
+      <button type = "button" class = "adicionarCarrinho" ng-click = "addToCart(data.id,data.price)"> Adicionar ao Carrinho</button>
     </div>
 
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_nike.avif" alt="Tênis Nike Air Max">
-      <h2>Air Max Plus OG</h2>
-      <span class="price">R$ 1.000,00</span>
-    </div>
-
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_pruma.webp" alt="Tênis 3">
-      <h2>Tênis Puma RS-X Mix</h2>
-      <span class="price">R$ 600,00</span>
-    </div>
-
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_nike_hallowen.webp" alt="Tênis 3">
-      <h2>Nike Dunk Hallowen</h2>
-      <span class="price">R$ 1.000,00</span>
-    </div>
-
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_adidas_campus.avif" alt="Tênis 3">
-      <h2>Adidas Campus</h2>
-      <span class="price">R$ 800,00</span>
-    </div>
-
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/vans_knu.webp" alt="Tênis 3">
-      <h2>Vans Knu</h2>
-      <span class="price">R$ 600,00</span>
-    </div>
-
-
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_nike_azul.avif" alt="Tênis 3">
-      <h2>Nike Dunk Low Retro SE </h2>
-      <span class="price">R$ 1.000,00</span>
-    </div>
-
-  
-    <div class="item">
-      <img src="./pagina_principal/assets/css/tenis_jordas.jpeg" alt="Tênis 3">
-      <h2>Jordan 1 mid </h2>
-      <span class="price">R$ 1.500,00</span>
-    </div>
-
-    
   </div>
 
   <script src="./global/scripts/routeConfigs.js"></script>

@@ -21,6 +21,14 @@ export class ProductRepository {
         });
     }
 
+    async getProduct(id){
+        return await this.prisma.product.findUnique({
+            where: {
+                id: parseInt(id),
+            },
+        });
+    }
+
     async deleteProduct(id) {
         try {
             const cartItems = await this.prisma.cartItem.findMany({

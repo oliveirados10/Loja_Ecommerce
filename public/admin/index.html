@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="ecommerceShoes">
 
 <head>
     <meta charset="UTF-8">
@@ -12,23 +12,110 @@
     <title>J3 | Página Principal - ADMIN </title>
 </head>
 
-<body class="corpo">
+<body class="corpo" ng-controller="shoesController">
     <h1 style="color: rgb(253, 254, 255); font-size: 28px; font-weight: bold;">J3 Comp. - Administrador</h1>
 
-    <!-- <div class="icon">
-        <button class="comprar" ng-click="submit()">
-            <svg xmlns="http://www.w3.org/2000/svg" style="color: white" width="50" height="50" fill="currentColor"
-                class="bi bi-cart-check" viewBox="0 0 16 16">
-                <path
-                    d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z" />
-                <path
-                    d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
-            </svg>
-        </button>
-    </div> -->
+
+
+
+    <div class="modal" tabindex="-1" ng-if="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        ng-click="closeModal()"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="formItens" ng-submit="submit(name, description, price, img)">
+
+                        <input type="text" class="name form-control" ng-model="name" placeholder="Nome">
+
+                        <input type="text" class="description form-control" ng-model="description"
+                            placeholder="Descrição">
+
+                        <input type="number" class="price form-control" ng-model="price" placeholder="Preço">
+
+                        <img class = "editImg" src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
+                                        ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
+                                        alt="">
+                        <input type="url" class="img form-control" ng-model="img" placeholder="Url">
+
+                        <div class="modal-footer">
+                            <button type="submit" class = "btnFinalizar">
+                               Finalizar
+                            </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="modal" tabindex="-1" ng-if="modalDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        ng-click="closemodalDelete()">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3>Você realmente deseja apagar esse item?</h3>
+                </div>
+
+                <button type="button" class="btn btn-primary" ng-click="removeProduct()"> Sim, quero apagar </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    
+    <div class="modal" tabindex="-1" ng-if="modalUpdate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal Update</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        ng-click="closemodalUpdate()">
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <h3>Você realmente deseja alterar esse item?</h3>
+                </div>
+
+                    <form class="formItens" ng-submit="submitUpdateProduct(name, description, price, img)">
+
+                        <input type="text" class="name form-control" ng-model="name" placeholder="Nome">
+
+                        <input type="text" class="description form-control" ng-model="description"
+                            placeholder="Descrição">
+
+                        <input type="number" class="price form-control" ng-model="price" placeholder="Preço">
+
+                        <img class = "editImg" src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
+                                        ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
+                                        alt="">
+                        <input type="url" class="img form-control" ng-model="img" placeholder="Url">
+
+                        <button type="submit" class="btn btn-primary"> Sim, quero editar </button>
+                    </form>
+
+               
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
 
     <div class="adicionarItens">
-        <button class="add">
+        <button class="add" ng-click="openModal()">
             <svg class="add-itens" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                 class="bi bi-patch-plus" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -43,11 +130,12 @@
 
 
     <div class="container">
-        <div class="item">
-            <img src="../admin/assets/css/tenis_adidas_boost.avif" alt="Tênis Adidas">
-            <h2>Adidas Boost</h2>
-            <span class="price">R$ 800,00</span>
-            <button class="deletar">
+
+        <div class="item" ng-repeat="data in products">
+            <img ng-src="{{data.imageUrl}}" alt="{{data.name}}">
+            <h2> {{data.name}} </h2>
+            <span class="price"> {{data.price | currency:'R$ ':2}}</span>
+            <button class="deletar" ng-click="openmodalDelete(data.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash3"
                     viewBox="0 0 16 16">
                     <path
@@ -55,7 +143,7 @@
                 </svg>
             </button>
 
-            <button class="editar">
+            <button class="editar" ng-click = "openmodalUpdate(data.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path
@@ -67,73 +155,10 @@
         </div>
 
 
-        <div class="item">
-            <img src="../admin/assets/css/tenis_nike.avif" alt="Tênis Nike Air Max">
-            <h2>Air Max Plus OG</h2>
-            <span class="price">R$ 1.000,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/tenis_pruma.webp" alt="Tênis 3">
-            <h2>Tênis Puma RS-X Mix</h2>
-            <span class="price">R$ 600,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/tenis_nike_hallowen.webp" alt="Tênis 3">
-            <h2>Nike Dunk Hallowen</h2>
-            <span class="price">R$ 1.000,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/tenis_adidas_campus.avif" alt="Tênis 3">
-            <h2>Adidas Campus</h2>
-            <span class="price">R$ 800,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/vans_knu.webp" alt="Tênis 3">
-            <h2>Vans Knu</h2>
-            <span class="price">R$ 600,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/tenis_nike_azul.avif" alt="Tênis 3">
-            <h2>Nike Dunk Low Retro SE </h2>
-            <span class="price">R$ 1.000,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
-        <div class="item">
-            <img src="../admin/assets/css/tenis_jordas.jpeg" alt="Tênis 3">
-            <h2>Jordan 1 mid </h2>
-            <span class="price">R$ 1.500,00</span>
-            <button class="deletar"> Deletar</button>
-            <button class="editar"> Editar</button>
-        </div>
-
-
     </div>
 
-    <script src="./global/scripts/routeConfigs.js"></script>
-    <script src="../admin/assets/js/main.js"></script>
+    <script src="../global/scripts/routeConfigs.js"></script>
+    <script src="./assets/js/main.js"></script>
 
 </body>
 

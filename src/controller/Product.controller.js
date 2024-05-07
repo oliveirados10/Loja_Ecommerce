@@ -25,6 +25,19 @@ export class ProductController {
         }
     }
 
+
+    getProduct = async (req, res) => {
+        try {
+            const { id } = req.params;
+            const product = await this.repository.getProduct(id);
+            res.status(200).json(product);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Erro ao buscar o produto' });
+        }
+    }
+
+    
     deleteProduct = async (req, res) => {
         try {
             const { id } = req.params;
