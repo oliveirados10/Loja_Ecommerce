@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="register-page">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../registerPage/assets/css/style.css">
+    <link rel="icon" href="./assets/css/img/shoes_icon.png" type=".//css/img/shoes_icon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>   
+    <title>J3 | Registre-se</title>
+</head>
+
+<body ng-controller = "registerController">
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo" id = "navMenu">
+                <p> J3 Comp. </p>
+            </div>
+            <div class="nav-menu">
+            </div>
+            <div class="nav-button">
+            </div>
+            <div class="nav-button-btn">
+            </div>
+        </nav>
+
+        <form class="form-box">
+
+        <div class="login-container" id="login">
+            <div class="top">
+                <span> Crie sua conta <a href="#" ng-click = "submit()"> Sign Up </a></span>
+                <header>Login</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field"  ng-model = "firstname" placeholder="Primeiro Nome " >
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field"  ng-model = "lastname" placeholder="Último Nome">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+
+            <div class="input-box">
+                <input type="email" class="input-field" ng-model = "email" placeholder="E-mail">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" ng-model = "password" placeholder="Senha">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" ng-click = "submit()" value="Registre-se">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check">Lembre-me</label>
+                </div>
+                <div class="two">
+                    <label> <a href="#">Termos e Condições </a></label>
+                </div>
+            </div>
+       </div>
+    </div>
+</form>
+
+<a href="../welcome/index.html">Retorne a tela de Boas-Vindas</a>
+
+<script src = "assets/js/main.js"></script>
+</div>
+</body>
+
+</html>

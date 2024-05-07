@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("./img/background_image.jpg");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+
+.navbar{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
+    z-index: 50vh;
+
+}
+
+
+.ul-content{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    list-style: none;
+
+}
+
+
+.name-logo{
+    margin: 20px;
+    color: white;
+    font-weight: bold;
+    padding-top: 0;
+    margin-top: -13px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+img{
+    height: 100vh;
+    width: 100%;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.btnLogin{
+    background-color: #8c959e;
+    text-align: center;
+    justify-content: center;
+    border-radius: 16px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+
+}
+
+
+
+.btnRegister{
+    background-color: #8c959e;
+    text-align: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 18px;
+
+    color: white;
+    font-weight: bold;
+    padding: 2px;
+}
+
+.btnLogin:hover,
+.btnRegister:hover {
+    background-color: #95a9bb46;
+}
+
+.sobre{
+    display: flex;
+    padding: 18px;
+    justify-content: center;
+    text-align: justify;
+    font-family: arial;
+    color: white;
+}
+
+
+
+span{
+    display: grid;
+    padding: 18px;
+    font-family: arial;
+    color: white;
+}
+
+
+
+
+/* 
+@media screen and (max-width: 768px) {
+    .add-imc,
+    .imclist {
+        max-width: 90%; 
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+} */
