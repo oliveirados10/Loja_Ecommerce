@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="appCarrinho">
 
 <head>
     <meta charset="UTF-8">
@@ -12,58 +12,38 @@
     <title>J3 | Carrinho de Compras</title>
 </head>
 
-<body class="corpo">
+<body class="corpo" ng-controller="controllerCarrinho">
     <h1>J3 Comp. - Carrinho de Compras</h1>
- 
+  
     <div class="container">
-        <div class="item">
-            <img src="../carrinho_compras/assets/css/tenis_adidas_boost.avif" alt="Tênis Adidas">
-            <h2>Adidas Boost</h2>
-            <span class="price">R$ 800,00</span>
+        <div class="item" ng-repeat="cartItem in cart.CartItem">
+            <img ng-src="{{cartItem.product.imageUrl}}" alt="{{cartItem.product.name}}">
+            <h2>{{cartItem.product.name}}</h2>
+            <span class="price">{{cartItem.product.price}}</span>
             <div class="actions">
-                <button onclick="removeItem(this)">-</button>
-                <span class="quantity">0</span>
-                <button onclick="addItem(this)">+</button>
+                <button ng-click="removeQuantity(cartItem.id, cartItem.quantity, cartItem.product.price, cartItem.price)">-</button>
+                <span class="quantity">{{cartItem.quantity}}</span>
+                <button ng-click="addQuantity(cartItem.id, cartItem.quantity, cartItem.product.price, cartItem.price)" >+</button>
             </div>
         </div>
 
-        <div class="item">
-            <img src="../carrinho_compras/assets/css/tenis_adidas_boost.avif" alt="Tênis Adidas">
-            <h2>Adidas Boost</h2>
-            <span class="price">R$ 800,00</span>
-            <div class="actions">
-                <button onclick="removeItem(this)">-</button>
-                <span class="quantity">0</span>
-                <button onclick="addItem(this)">+</button>
-            </div>
-        </div>
 
-        <div class="item">
-            <img src="../carrinho_compras/assets/css/tenis_adidas_boost.avif" alt="Tênis Adidas">
-            <h2>Adidas Boost</h2>
-            <span class="price">R$ 800,00</span>
-            <div class="actions">
-                <button onclick="removeItem(this)">-</button>
-                <span class="quantity">0</span>
-                <button onclick="addItem(this)">+</button>
-            </div>
-        </div>
 
 
     </div>
-       
-    <span> Total: R$ 0,00</span>
 
-    
+    <span> Total: {{ total | currency:'R$ ':2 }}</span>
+
+
 
     <div class="checkout-options">
-        <button onclick="finalizarCompra()">Finalizar Compra</button>
-        <button onclick="cancelarCarrinho()">Cancelar Carrinho</button>
+        <button ng-click="closeCart()">Finalizar Compra</button>
     </div>
 
-    
-    <a href = "../index.html  ">Retornar a Tela de Compras</a>
 
+    <a class = "return" href="../index.html  ">Retornar a Tela de Compras</a>
+
+    <script src="../global/scripts/routeConfigs.js"></script>
     <script src="../carrinho_compras/assets/js/main.js"></script>
 </body>
 

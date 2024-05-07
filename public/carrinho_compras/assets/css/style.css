@@ -142,3 +142,8 @@ a{
     font-size: 20px;
     padding: 30px;
 }
+
+.return{
+    font-weight: bold;
+    color: rgba(4, 50, 82, 0.808);
+}

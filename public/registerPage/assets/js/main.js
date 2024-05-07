@@ -15,7 +15,7 @@ app.controller('registerController', function ($scope, $http) {
         })
             .then((res) => {
                 console.log(res.data);
-
+                window.location.href = "/login/login.html";
             })
             .catch((error) => {
                 console.error("Error:", error);
