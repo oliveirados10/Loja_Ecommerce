@@ -156,3 +156,28 @@ header {
   background-color: #008000;
   font-weight: bold;
 }
+
+
+.divLogout{
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.btnlogout{
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #ffffff02;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btnlogout:hover{
+  background-color: #f80e0ecc;
+  font-weight: bold;
+  color: #fff;
+  font-weight: bold;
+
+}

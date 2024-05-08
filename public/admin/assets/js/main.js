@@ -10,6 +10,12 @@ app.controller("shoesController", ($scope, $http) => {
     $scope.description = "";
     $scope.price = "";
     $scope.img = "";
+    
+
+    $scope.logout = () =>{
+        localStorage.clear()
+        window.location.href = "/welcome/index.html"
+    }
 
     $scope.openModal = () => {
         $scope.modal = true;

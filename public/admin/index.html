@@ -15,7 +15,9 @@
 <body class="corpo" ng-controller="shoesController">
     <h1 style="color: rgb(253, 254, 255); font-size: 28px; font-weight: bold;">J3 Comp. - Administrador</h1>
 
-
+    <div class="divLogout">
+        <button class="btnlogout" ng-click="logout()" ;>Logout</button>
+    </div>
 
 
     <div class="modal" tabindex="-1" ng-if="modal">
@@ -36,14 +38,15 @@
 
                         <input type="number" class="price form-control" ng-model="price" placeholder="Preço">
 
-                        <img class = "editImg" src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
-                                        ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
-                                        alt="">
+                        <img class="editImg"
+                            src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
+                            ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
+                            alt="">
                         <input type="url" class="img form-control" ng-model="img" placeholder="Url">
 
                         <div class="modal-footer">
-                            <button type="submit" class = "btnFinalizar">
-                               Finalizar
+                            <button type="submit" class="btnFinalizar">
+                                Finalizar
                             </button>
                     </form>
                 </div>
@@ -65,15 +68,16 @@
                 <div class="modal-body">
                     <h3>Você realmente deseja apagar esse item?</h3>
                 </div>
-
+                <div class = "btnDelete">
                 <button type="button" class="btn btn-primary" ng-click="removeProduct()"> Sim, quero apagar </button>
-            </div>
+                </div>
+              </div>
         </div>
     </div>
     </div>
 
 
-    
+
     <div class="modal" tabindex="-1" ng-if="modalUpdate">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -88,24 +92,25 @@
                     <h3>Você realmente deseja alterar esse item?</h3>
                 </div>
 
-                    <form class="formItens" ng-submit="submitUpdateProduct(name, description, price, img)">
+                <form class="formItens" ng-submit="submitUpdateProduct(name, description, price, img)">
 
-                        <input type="text" class="name form-control" ng-model="name" placeholder="Nome">
+                    <input type="text" class="name form-control" ng-model="name" placeholder="Nome">
 
-                        <input type="text" class="description form-control" ng-model="description"
-                            placeholder="Descrição">
+                    <input type="text" class="description form-control" ng-model="description" placeholder="Descrição">
 
-                        <input type="number" class="price form-control" ng-model="price" placeholder="Preço">
+                    <input type="number" class="price form-control" ng-model="price" placeholder="Preço">
 
-                        <img class = "editImg" src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
-                                        ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
-                                        alt="">
-                        <input type="url" class="img form-control" ng-model="img" placeholder="Url">
-
+                    <img class="editImg"
+                        src="https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png"
+                        ng-src="{{img || 'https://www.pngkey.com/png/detail/233-2332677_image-500580-placeholder-transparent.png'}}"
+                        alt="">
+                    <input type="url" class="img form-control" ng-model="img" placeholder="Url">
+                    <div class = ".btnEdit">
                         <button type="submit" class="btn btn-primary"> Sim, quero editar </button>
-                    </form>
+                    </div>
+                </form>
 
-               
+
             </div>
         </div>
     </div>
@@ -143,7 +148,7 @@
                 </svg>
             </button>
 
-            <button class="editar" ng-click = "openmodalUpdate(data.id)">
+            <button class="editar" ng-click="openmodalUpdate(data.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path

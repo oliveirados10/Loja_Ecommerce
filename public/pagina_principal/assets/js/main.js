@@ -9,6 +9,13 @@ app.controller("shoesControllerPublic", ($scope, $http) => {
     $scope.modalRender = 0;
     $scope.productIdUpdate = 0;
     $scope.searchTerm = '';
+
+
+    $scope.logout = () =>{
+        localStorage.clear()
+        window.location.href = "/welcome/index.html"
+    }
+
     $scope.getAllProducts = () => {
         $http.get("http://localhost:3333/api/v1/product", {
             headers: {

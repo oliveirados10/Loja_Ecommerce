@@ -6,6 +6,7 @@ export class UserService {
     }
 
     validarUser = async (user) => {
+        console.log(user)
         const verifyUser = await this.repository.getUsers();
         console.log(verifyUser);
         const existingUser = verifyUser.find((element) => {

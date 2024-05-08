@@ -83,6 +83,7 @@ export class UserRepository {
 
     async loginUser({ usernameOrEmail, password }) {
         try {
+            console.log(usernameOrEmail)
             const user = await this.prisma.user.findFirst({
                 where: {
                     email: usernameOrEmail,
