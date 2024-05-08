@@ -19,7 +19,7 @@
         <div class="item" ng-repeat="cartItem in cart.CartItem">
             <img ng-src="{{cartItem.product.imageUrl}}" alt="{{cartItem.product.name}}">
             <h2>{{cartItem.product.name}}</h2>
-            <span class="price">{{cartItem.product.price}}</span>
+            <span class="price">{{cartItem.product.price | currency:'R$ ':2}}</span>
             <div class="actions">
                 <button ng-click="removeQuantity(cartItem.id, cartItem.quantity, cartItem.product.price, cartItem.price)">-</button>
                 <span class="quantity">{{cartItem.quantity}}</span>
