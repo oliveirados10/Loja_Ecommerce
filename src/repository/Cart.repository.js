@@ -160,4 +160,37 @@ export class CartRepository {
             throw error;
         }
     }
+
+    getLastCartByUserId = async (id) => { 
+        try {
+            return await this.prisma.cart.findFirst({
+                where: {
+                    userId: Number(id),
+                    AND:{
+                        closed: false
+                    }
+                },
+                select: {
+                    id: true,
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    countItems = async (id) => {
+        console.log(id, "Entrou certo")
+        try {
+            return await this.prisma.cartItem.count({
+                where: {
+                    cartId: Number(id)
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
 }

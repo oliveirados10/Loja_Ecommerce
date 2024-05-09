@@ -69,4 +69,24 @@ export class CartController {
         }
     }
 
+    getLastCartId = async (req, res) => {
+        try {
+            const id = req.params.id;
+            const cart = await this.repository.getLastCartByUserId(id);
+            res.status(200).json(cart);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    }
+
+    countItems = async (req, res) => {
+        try {
+            const cartID = req.params.id;
+            const cart = await this.repository.countItems(cartID);
+            res.status(200).json(cart);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    }
+
 }
