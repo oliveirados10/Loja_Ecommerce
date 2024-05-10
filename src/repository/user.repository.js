@@ -81,14 +81,14 @@ export class UserRepository {
         }
     }
 
-    async loginUser({ usernameOrEmail, password }) {
+    async loginUser({ email, password }) {
         try {
-            console.log(usernameOrEmail)
+            console.log(email)
             const user = await this.prisma.user.findFirst({
                 where: {
-                    email: usernameOrEmail,
+                    email: email,
                     password
-                }
+                } 
             });
 
             if (!user) {

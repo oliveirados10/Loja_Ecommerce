@@ -131,6 +131,7 @@ header {
 }
 
 .icon{
+    padding: 18px;
     display: flex;
     justify-content: end;
     margin-right: 30px;
@@ -203,3 +204,8 @@ header {
   line-height: 11px;
 }
 
+.historic{
+  color: white;
+  margin-right: 10px;
+  gap: 3px;
+}

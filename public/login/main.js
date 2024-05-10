@@ -13,6 +13,7 @@ app.controller('loginController', function ($scope, $http) {
                 console.log('nao entrou');
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
+                console.log(JSON.stringify(res.data.user))
                 console.log(res.data.message);
                 if (res.data.user.role === "admin") {
                     console.log('entrou');
